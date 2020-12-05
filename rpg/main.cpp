@@ -119,6 +119,7 @@ int main() {
         std::string enemyType = enemy.getTypeString();
         int maxHealth = enemy.maxHealth();
         int enemyHP = enemy.getHealth();
+        int damage = enemy.getStrength();
         
         if (enemyHP == maxHealth)
             std::cout << "\nA " << enemyType << " with " << enemyHP << "HP approaches.\n";
@@ -137,6 +138,7 @@ int main() {
         
         switch (input) {
             case ATTACK:
+                std::cout << "\n\nYou attack the " << enemyType << " for " << strength << " damage.\n";
                 enemy.takeDamage(strength);
                 
                 if (enemy.isDead())
@@ -147,6 +149,15 @@ int main() {
                     std::cout << "You have " << gold << " total gold.\n";
                     
                     enemy.generateNew();
+                } else {
+                    health -= damage;
+                    
+                    std::cout << "The " << enemyType << " strikes back for " << damage << " damage.\n";
+                    
+                    if (health <= 0) {
+                        std::cout << "\nYou died.\n";
+                        return 0;
+                    }
                 }
                 break;
             case RUN:
