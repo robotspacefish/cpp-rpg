@@ -121,19 +121,28 @@ int main() {
         int enemyHP = enemy.getHealth();
         int damage = enemy.getStrength();
         
+        std::cout << "\n";
+        std::cout << std::string(60, '=');
+        std::cout << "\n";
+        
         if (enemyHP == maxHealth)
-            std::cout << "\nA " << enemyType << " with " << enemyHP << "HP approaches.\n";
+            std::cout << "\nA " << enemyType << " with " << enemyHP << "HP and " << damage << " strength approaches.\n";
         else
             std::cout << "\nThe " << enemyType << " has " << enemyHP << "HP left.\n";
         
         std::cout << "You have " << health << "HP and " << strength << " strength.\n\n";
-        std::cout << "What would you like to do?\n";
+        
+        std::cout << "\nWhat would you like to do?\n";
         
         std::cout << "1. Attack\n";
         std::cout << "2. Run\n";
         std::cout << "0. Quit\n\n";
         
+        std::cout << std::endl;
+        
         std::cout << "Enter your selection: ";
+        
+        
         std::cin >> input;
         
         switch (input) {
