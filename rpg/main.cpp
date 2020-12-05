@@ -78,15 +78,10 @@ int main() {
         std::cout << "Enter a selection: ";
         std::cin >> input;
         
-        switch (input) {
-            case 1:
-                std::cout << "Enemy Type: " << getEnemyTypeAsString(randomEnemyType()) << "\n";
-                break;
-            case 2:
-                std::cout << "Goodbye!";
-            default:
-                std::cout << "Invalid selection";
-                break;
+        if (input == 1)
+        {
+            Enemy enemy;
+            enemy.print();
         }
     }
     return 0;
