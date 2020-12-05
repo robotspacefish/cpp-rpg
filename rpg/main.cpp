@@ -66,7 +66,7 @@ private:
 };
 
 int main() {
-    srand(time_t(NULL));
+    srand(time(NULL));
     
 //    enum moveType { ATTACK = 1, RUN };
     int input = 0;
