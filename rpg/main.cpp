@@ -87,20 +87,32 @@ private:
 int main() {
     srand(time(NULL));
     
-//    enum moveType { ATTACK = 1, RUN };
-    int input = 0;
+    enum moveType { ATTACK = 1, RUN };
+    int input = -1;
+    Enemy enemy;
     
-    while (input != 2) {
-        std::cout << "1. Generate Enemy\n";
-        std::cout << "2. Quit\n\n";
+    while (input != 0) {
+        std::string enemyType = enemy.getTypeString();
+        int enemyHP = enemy.getHealth();
+        
+        std::cout << "\n2A " << enemyType << " with " << enemyHP << "HP approaches. What would you like to do?\n";
+        std::cout << "1. Attack\n";
+        std::cout << "2. Run\n";
+        std::cout << "0. Quit\n\n";
         
         std::cout << "Enter a selection: ";
         std::cin >> input;
         
-        if (input == 1)
-        {
-            Enemy enemy;
-            enemy.print();
+        switch (input) {
+            case ATTACK:
+                break;
+            case RUN:
+                std::cout << "You are too scared of the " << enemyType << " and you run away.\n";
+                
+                enemy.generateNew();
+                break;
+            default:
+                break;
         }
     }
     return 0;
