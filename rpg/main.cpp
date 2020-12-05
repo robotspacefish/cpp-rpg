@@ -60,6 +60,11 @@ public:
         health -= str;
     }
     
+    int getStrength()
+    {
+        return maxHealth()/3;
+    }
+    
     void print()
     {
         std::cout << "Enemy Type: " << getEnemyTypeAsString(type) << ", health: " << health << "\n";
