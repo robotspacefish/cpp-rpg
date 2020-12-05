@@ -55,10 +55,29 @@ public:
         health = getHealthByType(type);
     }
     
+    void takeDamage(int str) {
+        health -= str;
+    }
+    
     void print()
     {
         std::cout << "Enemy Type: " << getEnemyTypeAsString(type) << ", health: " << health << "\n";
     }
+    
+    std::string getTypeString() {
+        return getEnemyTypeAsString(type);
+    }
+    
+    void generateNew()
+    {
+        type = randomEnemyType();
+        health = getHealthByType(type);
+    }
+    
+    int getHealth() {
+        return health;
+    }
+    
     
 private:
     int health;
