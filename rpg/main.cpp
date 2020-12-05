@@ -82,6 +82,10 @@ public:
         return health <= 0;
     }
     
+    int maxHealth() {
+        return getHealthByType(type);
+    }
+    
 private:
     int health;
     int type;
