@@ -53,6 +53,7 @@ public:
     {
         type = randomEnemyType();
         health = getHealthByType(type);
+        gold = rand() % 20;
     }
     
     void takeDamage(int str) {
@@ -72,6 +73,7 @@ public:
     {
         type = randomEnemyType();
         health = getHealthByType(type);
+        gold = rand() % 20;
     }
     
     int getHealth() {
@@ -86,9 +88,15 @@ public:
         return getHealthByType(type);
     }
     
+    int getGold()
+    {
+        return gold;
+    }
+    
 private:
     int health;
     int type;
+    int gold;
 };
 
 int main() {
@@ -98,6 +106,7 @@ int main() {
     int input = -1;
     int strength = 10;
     int health = 100;
+    int gold = 0;
     
     Enemy enemy;
     
@@ -127,7 +136,11 @@ int main() {
                 
                 if (enemy.isDead())
                 {
-                    std::cout << "\nYou defeated the " << enemyType << ".\n";
+                    int enemyGold = enemy.getGold();
+                    gold += enemyGold;
+                    std::cout << "\nYou defeated the " << enemyType << " and received " << enemyGold << " gold.\n";
+                    std::cout << "You have " << gold << " total gold.\n";
+                    
                     enemy.generateNew();
                 }
                 break;
