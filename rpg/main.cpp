@@ -96,6 +96,9 @@ int main() {
     
     enum moveType { ATTACK = 1, RUN };
     int input = -1;
+    int strength = 10;
+    int health = 100;
+    
     Enemy enemy;
     
     while (input != 0) {
