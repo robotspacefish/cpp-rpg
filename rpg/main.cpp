@@ -103,18 +103,33 @@ int main() {
     
     while (input != 0) {
         std::string enemyType = enemy.getTypeString();
+        int maxHealth = enemy.maxHealth();
         int enemyHP = enemy.getHealth();
         
-        std::cout << "\n2A " << enemyType << " with " << enemyHP << "HP approaches. What would you like to do?\n";
+        if (enemyHP == maxHealth)
+            std::cout << "\nA " << enemyType << " with " << enemyHP << "HP approaches.\n";
+        else
+            std::cout << "\nThe " << enemyType << " has " << enemyHP << "HP left.\n";
+        
+        std::cout << "You have " << health << "HP and " << strength << " strength.\n\n";
+        std::cout << "What would you like to do?\n";
+        
         std::cout << "1. Attack\n";
         std::cout << "2. Run\n";
         std::cout << "0. Quit\n\n";
         
-        std::cout << "Enter a selection: ";
+        std::cout << "Enter your selection: ";
         std::cin >> input;
         
         switch (input) {
             case ATTACK:
+                enemy.takeDamage(strength);
+                
+                if (enemy.isDead())
+                {
+                    std::cout << "\nYou defeated the " << enemyType << ".\n";
+                    enemy.generateNew();
+                }
                 break;
             case RUN:
                 std::cout << "You are too scared of the " << enemyType << " and you run away.\n";
