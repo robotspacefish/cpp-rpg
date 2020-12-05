@@ -31,12 +31,44 @@ std::string getEnemyTypeAsString(int type)
     }
 }
 
+int getHealthByType(int type) {
+    switch (type) {
+        case OGRE:
+            return 40;
+        case GOBLIN:
+            return 30;
+        case SKELLY:
+            return 20;
+        case SLIME:
+            return 10;
+        default:
+            return 0;
+    }
+}
+
+class Enemy
+{
+public:
+    Enemy()
+    {
+        type = randomEnemyType();
+        health = getHealthByType(type);
+    }
+    
+    void print()
+    {
+        std::cout << "Enemy Type: " << getEnemyTypeAsString(type) << ", health: " << health << "\n";
+    }
+    
+private:
+    int health;
+    int type;
+};
+
 int main() {
     srand(time_t(NULL));
     
-    enum moveType { ATTACK = 1, RUN };
-    std::string enemyName;
-    std::cout << enemyName;
+//    enum moveType { ATTACK = 1, RUN };
     int input = 0;
     
     while (input != 2) {
