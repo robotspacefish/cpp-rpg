@@ -6,6 +6,7 @@
 //
 
 #include <iostream>
+enum characterType { PLAYER, OGRE, GOBLIN, SLIME, SKELLY };
 
 int main(int argc, const char * argv[]) {
     // insert code here...
