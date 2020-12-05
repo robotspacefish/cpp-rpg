@@ -78,6 +78,9 @@ public:
         return health;
     }
     
+    bool isDead() {
+        return health <= 0;
+    }
     
 private:
     int health;
